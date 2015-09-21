@@ -5,9 +5,9 @@ Sample project, demonstrates how you can use your `bitrise.yml` directly from yo
 
 ## Guide
 
-1. Create a new app on [bitrise.io](https://www.bitrise.io)
-2. Replace it's `bitrise.yml` configuration with the one below
-3. Start a new build
+1. Create a new app on [bitrise.io](https://www.bitrise.io).
+2. Replace it's `bitrise.yml` configuration with the one below.
+3. Start a new build.
 
 
 ## "Host" `bitrise.yml`, drop-in for bitrise.io
