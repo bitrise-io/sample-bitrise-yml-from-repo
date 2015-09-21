@@ -16,7 +16,8 @@ This configuration can be copy-pasted to [bitrise.io](https://www.bitrise.io),
 and will properly map the inputs to run `bitrise` with the `bitrise.yml`
 found in this (or your) repository.
 
-*Note*: for public repositories you can remove the `activate-ssh-key` step.
+**Note**: for public repositories / if you use a public `git clone` URL
+you should remove the `activate-ssh-key` step!
 
 ```
 ---
@@ -37,3 +38,11 @@ workflows:
             #!/bin/bash
             bitrise trigger "$BITRISE_GIT_BRANCH"
 ```
+
+## Important Security notes
+
+Be aware that if you use this method **anyone can change your `bitrise.yml` file**
+via Pull Requests!
+
+You should only allow this if you're absolutely sure that no private/secret
+information is exposed for builds started by Pull Requests!
