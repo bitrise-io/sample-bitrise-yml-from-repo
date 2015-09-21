@@ -1,0 +1,38 @@
+format_version: 1.0.0
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+app:
+  envs:
+  - BITRISE_APP_TITLE: "$BITRISE_APP_TITLE"
+  # - BITRISE_PROJECT_PATH: ""
+  # - BITRISE_SCHEME: ""
+
+trigger_map:
+- pattern: "*"
+  is_pull_request_allowed: true
+  workflow: test
+
+workflows:
+  test:
+    steps:
+    - script:
+        inputs:
+        - content: |-
+            #!/bin/bash
+            set -e
+            set -v
+
+            env
+    - timestamp:
+        outputs:
+        - UNIX_TIMESTAMP:
+        - ISO_DATETIME:
+    - script:
+        title: Hello Bitrise!
+        inputs:
+        - content: |-
+            #!/bin/bash
+            echo "Welcome to Bitrise!"
+            echo "Current time is: ${ISO_DATETIME}"
+            echo
+            echo "Your specified Project Title is: ${BITRISE_APP_TITLE}"
