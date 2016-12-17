@@ -4,16 +4,9 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 app:
   envs:
   - BITRISE_APP_TITLE: "$BITRISE_APP_TITLE"
-  # - BITRISE_PROJECT_PATH: ""
-  # - BITRISE_SCHEME: ""
-
-trigger_map:
-- pattern: "*"
-  is_pull_request_allowed: true
-  workflow: test
 
 workflows:
-  test:
+  ci:
     steps:
     - script:
         inputs:
